@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Settings Mini-App</title>
+</head>
+<body>
+    <h1>Game Settings</h1>
+    <div id="settings-menu">
+        <!-- Кнопки и меню появятся здесь -->
+    </div>
+    <script>
+        // Telegram Web App API
+        const tg = window.Telegram.WebApp;
+        
+        // Запускаем Web App с полноэкранным режимом
+        tg.expand();
+
+        // Пример отправки данных на сервер
+        function sendData(data) {
+            fetch("https://your-domain.com/settings", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(response => response.json())
+              .then(result => {
+                  console.log("Settings saved:", result);
+              });
+        }
+
+        // Пример интерфейса настройки
+        document.getElementById("settings-menu").innerHTML = `
+            <button onclick="sendData({game: 'PUBG', setting: 'graphics', value: 'high'})">High Graphics (PUBG)</button>
+        `;
+    </script>
+</body>
+</html>
