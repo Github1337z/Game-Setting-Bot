@@ -6,8 +6,8 @@ import asyncio
 
 app = Flask(__name__)
 
-TOKEN = "ВАШ_ТОКЕН"
-WEBHOOK_URL = f"https://ВАШ_HTTPS_СЕРВЕР/{TOKEN}"
+TOKEN = ""
+WEBHOOK_URL = f"game-setting-milky.amvera.io{TOKEN}"
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
